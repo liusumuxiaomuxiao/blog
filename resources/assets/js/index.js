@@ -1,0 +1,1 @@
+require('./clean-blog')

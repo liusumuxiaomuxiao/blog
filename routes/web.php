@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::resource('photos', 'PhotoController');
+Route::resource('musics', 'MusicController');
+Route::resource('journals', 'JournalController');
+Route::resource('tweets', 'TweetController');
