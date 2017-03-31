@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Tweet;
 class TweetController extends Controller
 {
     /**
@@ -11,8 +11,9 @@ class TweetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
+      $tweets = Tweet::simplePaginate(15);
+      return view('blog.tweet.index')->with('tweets', $tweets);
         //
     }
 
