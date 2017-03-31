@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Music;
 class MusicController extends Controller
 {
     /**
@@ -11,9 +11,9 @@ class MusicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $musics = Music::simplePaginate(15);
+        return view('blog.music.index')->with('musics', $musics);
     }
 
     /**
